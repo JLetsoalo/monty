@@ -8,17 +8,17 @@
 
 void pall(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmpry = NULL;
+	stack_t *tmp = NULL;
 
 	if (!h || !*h)
 		return;
 
 	(void) line_number;
-	tmpry = *h;
-	while (tmpry != NULL)
+	tmp = *h;
+	while (tmp != NULL)
 	{
-		printf("%d\n", tmpry->n);
-		tmpry = tmpry->next;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 }
 
@@ -71,19 +71,19 @@ void pchar(stack_t **h, unsigned int line_number)
 
 void pstr(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmpry;
+	stack_t *tmp;
 
 	if (!h || !*h)
 	{
 		printf("L%u: can not pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmpry = *h;
-	while ((tmpry != NULL) && (tmpry->n != 0) &&
-	       (tmpry->n >= 0) && (tmpry->n <= 127))
+	tmp = *h;
+	while ((tmp != NULL) && (tmp->n != 0) &&
+	       (tmp->n >= 0) && (tmp->n <= 127))
 	{
-		printf("%c", (tmpry)->n);
-		tmpry = tmpry->next;
+		printf("%c", (tmp)->n);
+		tmp = tmp->next;
 	}
 	printf("\n");
 }
