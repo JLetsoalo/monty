@@ -8,27 +8,27 @@
 
 void swap(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmpry = NULL;
+	stack_t *tmp = NULL;
 
 	if (*h == NULL || (*h)->next == NULL)
 	{
 		printf("L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmpry = (*h)->next;
-	if (tmpry->next != NULL)
+	tmp = (*h)->next;
+	if (tmp->next != NULL)
 	{
-		(*h)->next = tmpry->next;
+		(*h)->next = tmp->next;
 		(*h)->next->prev = *h;
 
 	}
 	else
 	{
-		tmpry->prev->prev = tmpry;
-		tmpry->prev->next = NULL;
-		tmpry->prev = NULL;
-		tmpry->next = *h;
-		(*h) = tmpry;
+		tmp->prev->prev = tmp;
+		tmp->prev->next = NULL;
+		tmp->prev = NULL;
+		tmp->next = *h;
+		(*h) = tmp;
 	}
 }
 
@@ -40,22 +40,22 @@ void swap(stack_t **h, unsigned int line_number)
 
 void rotl(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmpry;
+	stack_t *tmp;
 
 	(void) line_number;
 
 	if ((*h)->next != NULL)
 	{
-		tmpry = *h;
-		while (tmpry->next != NULL)
+		tmp = *h;
+		while (tmp->next != NULL)
 		{
-			tmpry = tmpry->next;
+			tmp = tmp->next;
 		}
-		(*h)->prev = tmpry;
-		tmpry->next = *h;
+		(*h)->prev = tmp;
+		tmp->next = *h;
 		(*h)->next->prev = NULL;
 		*h = (*h)->next;
-		tmpry->next->next = NULL;
+		tmp->next->next = NULL;
 	}
 }
 
@@ -67,20 +67,20 @@ void rotl(stack_t **h, unsigned int line_number)
 
 void rotr(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmpry;
+	stack_t *tmp;
 
 	(void) line_number;
 
 	if ((*h)->next != NULL)
 	{
-		tmpry = *h;
-		while (tmpry->next != NULL)
+		tmp = *h;
+		while (tmp->next != NULL)
 		{
-			tmpry = tmpry->next;
-			(*h)->prev = tmpry;
-			tmpry->next = *h;
-			tmpry->prev->next = NULL;
-			tmpry->prev = NULL;
+			tmp = tmp->next;
+			(*h)->prev = tmp;
+			tmp->next = *h;
+			tmp->prev->next = NULL;
+			tmp->prev = NULL;
 			(*h) = (*h)->prev;
 		}
 	}
