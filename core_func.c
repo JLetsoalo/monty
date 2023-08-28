@@ -27,12 +27,13 @@ void (*core_op_func(char *token1))(stack_t **stack, unsigned int line_number)
 	};
 	int x;
 
-	/*while (instruction_s[x].f != NULL)*/
-	for (x = 0; instruction_s[x].f != NULL; x++)
+	x =0;
+	while (instruction_s[x].f != NULL)
+	/*for (x = 0; instruction_s[x].f != NULL; x++)*/
 	{
 		if (strcmp(token1, instruction_s[x].opcode) == 0)
 		return (instruction_s[x].f);
-		/* x++;*/
+		x++;
 	}
 	return (NULL);
 }
