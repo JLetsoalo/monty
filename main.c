@@ -1,4 +1,4 @@
-#include "monty.h"
+include "monty.h"
 
 /**
  * main - entry into n main interpreter
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	unsigned int line = 1;
 	ssize_t n_read;
 	char *buffer, *token;
-	stack_t *x = NULL;
+		stack_t *x = NULL;
 
 	if (argc != 2)
 	{
@@ -28,7 +28,9 @@ int main(int argc, char *argv[])
 	}
 	buffer = malloc(sizeof(char) * 10000);
 	if (!buffer)
+	{
 		return (0);
+	}
 	n_read = read(fnd, buffer, 10000);
 	if (n_read == -1)
 	{
@@ -55,9 +57,9 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			if (get_op_func(token) != 0)
+			if (core_op_func(token) != 0)
 			{
-				get_op_func(token)(&x, line);
+				core_op_func(token)(&x, line);
 			}
 			else
 			{

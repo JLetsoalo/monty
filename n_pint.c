@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pall - prints all nodes in stack
+ * pall - prints all nodes in a stack
  * @h: head of list
  * @line_number: bytecode line number
  */
@@ -89,7 +89,7 @@ void pstr(stack_t **h, unsigned int line_number)
 }
 
 /**
- * nop - does nothing
+ * nop - nothing happens
  * @h: list head
  * @line_number: bytecode line number
  */
